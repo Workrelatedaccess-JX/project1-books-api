@@ -1,0 +1,26 @@
+{
+  "name": "http-api-assignment-ii-forked",
+  "version": "1.0.0",
+  "description": "HTTP API Assignment II - IGME 430",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "pretest": "eslint ./src",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked.git"
+  },
+  "keywords": [],
+  "author": "Workrelatedaccess-JX",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked/issues"
+  },
+  "homepage": "https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked#readme",
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}

@@ -24,13 +24,83 @@
         <option value='/notReal'>/notReal</option>
       </select>
       <select id="methodSelect">
-        <option value="get">GET</option>
-        <option value="head">HEAD</option>
+        <option value="GET">GET</option>
+        <option value="HEAD">HEAD</option>
       </select>
       <input type="submit" value="Get User" />
     </form>
   </section>
   <section id="content">
+    <script>
+      const nameForm = document.querySelector('#nameForm');
+      const userForm = document.querySelector('#userForm');
+      const nameField = document.querySelector('#nameField');
+      const ageField = document.querySelector('#ageField');
+      const urlField = document.querySelector('#urlField');
+      const methodSelect = document.querySelector('#methodSelect');
+      const content = document.querySelector('#content');
+
+      // add user(POST), which will return 204 if the user already exists
+      nameForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = nameField.value;
+        const age = ageField.value;
+
+        try {
+          const response = await fetch('/addUser', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, age }),
+          });
+
+          // 204 has no body so no parsing
+          if (response.status === 204) {
+            console.log('204 No Content — user updated');
+            content.innerHTML = '<p>Updated (No Content)</p>';
+            return;
+          }
+
+          const data = await response.json();
+          console.log('Response:', data);
+          content.innerHTML = `<p>${data.message}</p>`;
+        } catch (err) {
+          console.error(err);
+          content.innerHTML = '<p>Error contacting server.</p>';
+        }
+      });
+
+      // get users(GET/HEAD), which will return 404 if the endpoint doesn't exist
+      userForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const url = urlField.value;
+        const method = methodSelect.value;
+
+        try {
+          const response = await fetch(url, { method });
+
+          // HEAD has no body — don't try to parse it
+          if (method === 'HEAD') {
+            console.log(`HEAD ${url} -> ${response.status}`);
+            content.innerHTML = `<p>Status: ${response.status} ${response.statusText} (no body for HEAD)</p>`;
+            return;
+          }
+
+          const data = await response.json();
+          console.log('Response:', data);
+
+          if (response.ok) {
+            content.innerHTML = `<p>${JSON.stringify(data)}</p>`;
+          } else {
+            content.innerHTML = `<p>${data.message}</p>`;
+          }
+        } catch (err) {
+          console.error(err);
+          content.innerHTML = '<p>Error contacting server.</p>';
+        }
+      });
+    </script>
   </section>
 </body>
 </html>
