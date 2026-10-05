@@ -1,7 +1,7 @@
 {
-  "name": "http-api-assignment-ii-forked",
+  "name": "project1-books-api",
   "version": "1.0.0",
-  "description": "HTTP API Assignment II - IGME 430",
+  "description": "IGME 430 Project 1 - Book API",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -10,17 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked.git"
+    "url": "git+https://github.com/Workrelatedaccess-JX/project1-books-api.git"
   },
   "keywords": [],
   "author": "Workrelatedaccess-JX",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked/issues"
+    "url": "https://github.com/Workrelatedaccess-JX/project1-books-api/issues"
   },
-  "homepage": "https://github.com/Workrelatedaccess-JX/http-api-assignment-ii-forked#readme",
+  "homepage": "https://github.com/Workrelatedaccess-JX/project1-books-api#readme",
   "devDependencies": {
-    "eslint": "^9.0.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0"
   }
 }
