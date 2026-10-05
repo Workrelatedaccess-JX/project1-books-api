@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Workrelatedaccess-JX/project1-books-api#readme",
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.39.5",
     "eslint": "^9.39.5",
     "globals": "^17.13.0"
   }
